@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // 1
-enum Environment { dev, staging, prod }
+enum Environment { dev, prod }
 
 // 2
 class AppFlavorConfig {

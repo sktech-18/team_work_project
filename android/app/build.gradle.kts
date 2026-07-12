@@ -37,8 +37,27 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
+    flavorDimensions += "teamwork"
+
+    productFlavors {
+        create("dev") {
+            dimension = "teamwork"
+            resValue("string", "app_name", "TeamWork-dev")
+        }
+        create("prod") {
+            dimension = "teamwork"
+            resValue("string", "app_name", "TeamWork")
+        }
+    }
 }
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation("androidx.appcompat:appcompat:1.7.1")
+    implementation("com.google.android.material:material:1.13.0")
 }

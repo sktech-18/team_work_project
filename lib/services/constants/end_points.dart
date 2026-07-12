@@ -1,15 +1,14 @@
 class EndPoints {
-  static const String baseUrl = 'https://fakestoreapi.com/';
-
+  ///https://6a53136b78ecba6073e2f63b.mockapi.io/teamwork/task_list
 
   ///test environment
-  static String testBaseUrl = "https://fakestoreapi.com/";
+  static String devBaseUrl = "https://6a53136b78ecba6073e2f63b.mockapi.io/teamwork/";
 
   ///prod environment
-  static String prodBaseUrl = "https://fakestoreapi.com/";
+  static String prodBaseUrl = "https://6a53136b78ecba6073e2f63b.mockapi.io/teamwork/";
 
   ///EndPoints
-  static const String productList  = "products";
+  static const String taskList  = "task_list";
 
 
 }
