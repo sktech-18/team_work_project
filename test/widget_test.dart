@@ -5,8 +5,17 @@ import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import 'package:team_work_project/services/local-storage/shared_prefs_services.dart';
+import 'package:team_work_project/ui/bloc/auth_bloc.dart';
+import 'package:team_work_project/ui/bloc/auth_event_state.dart';
 import 'package:team_work_project/ui/bloc/theme_bloc.dart';
 import 'package:team_work_project/ui/page/login_screen.dart';
+
+class FakeAuthBloc extends Bloc<AuthEvent, AuthState> implements AuthBloc {
+  FakeAuthBloc() : super(AuthInitial());
+
+  @override
+  bool get isLoggedIn => false;
+}
 
 void main() {
   setUp(() async {
@@ -30,6 +39,9 @@ void main() {
         providers: [
           BlocProvider<ThemeBloc>(
             create: (_) => GetIt.instance<ThemeBloc>()..add(LoadThemeEvent()),
+          ),
+          BlocProvider<AuthBloc>(
+            create: (_) => FakeAuthBloc(),
           ),
         ],
         child: Sizer(

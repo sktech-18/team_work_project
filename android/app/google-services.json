@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "870824648843",
+    "project_id": "team-task-61de4",
+    "storage_bucket": "team-task-61de4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870824648843:android:9bd34b165c2a1e058df48e",
+        "android_client_info": {
+          "package_name": "com.example.team_work_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870824648843-3nhqmfkdmh2sbhbiogrhumk607qd1ceo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.team_work_project",
+            "certificate_hash": "cb83a45e80a90ae8e0a17a45adc3338c551c8de4"
+          }
+        },
+        {
+          "client_id": "870824648843-5kpjsdo9lt4ih9n87v00jllr8r0bppuo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwjqdYJYZ3imcRFOLQkOyv3reK6aUGZbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870824648843-5kpjsdo9lt4ih9n87v00jllr8r0bppuo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

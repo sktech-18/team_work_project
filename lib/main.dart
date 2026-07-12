@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:team_work_project/services/constants/end_points.dart';
 import 'package:team_work_project/services/network/app_flavor_config.dart';
 import 'package:team_work_project/services/services_handle.dart';
@@ -8,6 +9,8 @@ import 'app_main/base_class.dart';
 
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  /// Firebase Initialization
+  await Firebase.initializeApp();
   /// Share Preferences Init function
   await setupLocator();
 

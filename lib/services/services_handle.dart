@@ -12,6 +12,7 @@ import '../dependancy/useCases/home_use_case.dart';
 import 'local-storage/shared_prefs_services.dart';
 import 'network/network_info.dart';
 import 'network/app_flavor_config.dart';
+import '../ui/bloc/auth_bloc.dart';
 
 final GetIt locator = GetIt.instance;
 
@@ -24,6 +25,10 @@ Future<void> setupLocator() async {
 
   locator.registerLazySingleton<SplashBloc>(
     () => SplashBloc(),
+  );
+
+  locator.registerLazySingleton<AuthBloc>(
+    () => AuthBloc(),
   );
 
   ///EXTERNAL

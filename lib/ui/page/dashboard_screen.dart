@@ -444,22 +444,40 @@ class _DashboardScreenState extends State<DashboardScreen> {
               const SizedBox(height: 8),
               Row(
                 children: [
-                  // Status badge
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: _getStatusBgColor(task.status, isDark),
-                      borderRadius: BorderRadius.circular(6),
-                      border: Border.all(
-                        color: _getStatusBorderColor(task.status, isDark),
+                  // Status badge (tap to toggle completion)
+                  GestureDetector(
+                    onTap: () {
+                      context.read<TaskBloc>().add(
+                        ToggleCompleteEvent(id: task.id, isCompleted: !isCompleted),
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: _getStatusBgColor(task.status, isDark),
+                        borderRadius: BorderRadius.circular(6),
+                        border: Border.all(
+                          color: _getStatusBorderColor(task.status, isDark),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      _getStatusLabel(task.status),
-                      style: TextStyle(
-                        color: _getStatusTextColor(task.status, isDark),
-                        fontSize: 13.5.sp,
-                        fontWeight: FontWeight.bold,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            isCompleted ? Icons.replay : Icons.check_circle_outline,
+                            color: _getStatusTextColor(task.status, isDark),
+                            size: 14.sp,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            _getStatusLabel(task.status),
+                            style: TextStyle(
+                              color: _getStatusTextColor(task.status, isDark),
+                              fontSize: 13.5.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

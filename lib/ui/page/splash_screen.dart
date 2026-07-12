@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:team_work_project/services/constants/app_router.dart';
 import 'package:team_work_project/ui/bloc/splash_bloc.dart';
+import 'package:team_work_project/ui/bloc/auth_bloc.dart';
 import 'package:team_work_project/services/local-storage/shared_prefs_services.dart';
 import 'package:team_work_project/services/services_handle.dart';
 
@@ -30,9 +31,9 @@ class _SplashScreenState extends State<SplashScreen> {
       body: BlocListener<SplashBloc, SplashState>(
         listener: (context, state) {
           if (state is SplashNavigateToLogin) {
-            // Check if user session (Auth Token) is persisted locally
-            final sharedPrefs = locator<SharedPrefsService>();
-            if (sharedPrefs.isLoggedIn()) {
+            // Check if user session is persisted via AuthBloc
+            final isLoggedIn = context.read<AuthBloc>().isLoggedIn;
+            if (isLoggedIn) {
               debugPrint("[SplashScreen] User session found. Navigating to Dashboard.");
               Navigator.pushReplacementNamed(context, AppRouter.dashboard);
             } else {
